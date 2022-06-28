@@ -1,1 +1,6 @@
-/* You can add global styles to this file, and also import other style files */
+@use "global" as g;
+@use "resetter";
+
+body {
+  font-family: g.$font-family;
+}
