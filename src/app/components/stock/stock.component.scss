@@ -1,0 +1,32 @@
+@use "colors" as c;
+@use "mixins" as m;
+
+.quote {
+  box-shadow: 0px 0px 30px -4px rgb(0 0 0 / 10%);
+  background-color: c.$white;
+  border-radius: 10px;
+  padding: 20px;
+  font-size: 15px;
+
+  h2 {
+    font-size: 20px;
+    margin-bottom: 15px;
+  }
+
+  .information-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    row-gap: 5px;
+
+    span {
+      font-weight: 700;
+    }
+  }
+
+  button {
+    @include m.button;
+    width: 230px;
+    padding: 10px 10px;
+    margin-top: 20px;
+  }
+}

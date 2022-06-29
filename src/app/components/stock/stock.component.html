@@ -1,0 +1,12 @@
+<div class="quote">
+  <ng-container *ngIf="company | async as c">
+    <h2>{{ c.description + " (" + c.symbol + ")" }}</h2>
+  </ng-container>
+  <div class="information-container" *ngIf="quote | async as q">
+    <p><span>Change today: </span>{{ (q.dp | number: "1.1-2") + "%" }}</p>
+    <p><span>Current price: </span>{{ q.c | currency }}</p>
+    <p><span>Opening price: </span>{{ q.o | currency }}</p>
+    <p><span>High price: </span>{{ q.h | currency }}</p>
+  </div>
+  <button>Go to social sentiment details</button>
+</div>

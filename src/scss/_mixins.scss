@@ -1,0 +1,17 @@
+@use "colors" as c;
+
+@mixin button {
+  border: none;
+  font: {
+    family: inherit;
+    size: 14px;
+  }
+  border-radius: 10px;
+  background-color: c.$blue;
+  color: c.$white;
+  box-shadow: 0px 0px 30px -4px rgb(39 82 224 / 15%);
+
+  &:hover {
+    cursor: pointer;
+  }
+}
