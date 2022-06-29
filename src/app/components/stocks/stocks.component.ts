@@ -24,4 +24,10 @@ export class StocksComponent implements OnInit {
     this.localStorageService.setItem('stocks', this.stocks);
     this.stockInput.reset();
   }
+
+  onDeleteStock(symbol: string): void {
+    const index = this.stocks.indexOf(symbol);
+    this.stocks.splice(index, 1);
+    this.localStorageService.setItem('stocks', this.stocks);
+  }
 }

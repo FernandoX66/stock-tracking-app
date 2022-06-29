@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { map, Observable, pluck } from 'rxjs';
 import { QuoteData } from 'src/app/interfaces/quote.interface';
 import { Company } from 'src/app/interfaces/symbol-lookup-response.interface';
@@ -11,6 +11,7 @@ import { StocksService } from 'src/app/services/stocks.service';
 })
 export class StockComponent {
   @Input() set stock(symbol: string) {
+    this.symbol = symbol;
     this.quote = this.stocksService.getQuote(symbol);
     this.company = this.stocksService.searchSymbol(symbol).pipe(
       pluck('result'),
@@ -20,8 +21,14 @@ export class StockComponent {
       )
     );
   }
+  @Output() deleteStock = new EventEmitter<string>();
+  symbol: string;
   quote: Observable<QuoteData>;
   company: Observable<Company>;
 
   constructor(private stocksService: StocksService) {}
+
+  removeStock(): void {
+    this.deleteStock.emit(this.symbol);
+  }
 }

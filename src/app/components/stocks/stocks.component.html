@@ -12,6 +12,10 @@
     </div>
   </div>
   <div class="stocks-container">
-    <app-stock *ngFor="let stock of stocks" [stock]="stock"></app-stock>
+    <app-stock
+      *ngFor="let stock of stocks"
+      [stock]="stock"
+      (deleteStock)="onDeleteStock($event)"
+    ></app-stock>
   </div>
 </div>
