@@ -7,9 +7,11 @@ import { AppComponent } from './app.component';
 import { StocksComponent } from './components/stocks/stocks.component';
 import { StockComponent } from './components/stock/stock.component';
 import { HttpClientModule } from '@angular/common/http';
+import { InsiderSentimentComponent } from './components/insider-sentiment/insider-sentiment.component';
+import { MonthDataComponent } from './components/month-data/month-data.component';
 
 @NgModule({
-  declarations: [AppComponent, StocksComponent, StockComponent],
+  declarations: [AppComponent, StocksComponent, StockComponent, InsiderSentimentComponent, MonthDataComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

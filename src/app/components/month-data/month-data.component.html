@@ -1,0 +1,33 @@
+<div class="month-data-container">
+  <h4>{{ sentimentResult.monthName | uppercase }}</h4>
+  <div class="month-details">
+    <div class="month-information">
+      <p
+        [ngClass]="{
+          'negative-text': sentimentResult.change < 0,
+          'positive-text': sentimentResult.change > 0
+        }"
+      >
+        <span>Change: </span
+        >{{
+          sentimentResult.change > 0
+            ? "+" + sentimentResult.change
+            : sentimentResult.change
+        }}
+      </p>
+      <p><span>MSPR: </span>{{ sentimentResult.mspr | number: "1.1-2" }}</p>
+    </div>
+    <div class="arrow-container">
+      <img
+        *ngIf="sentimentResult.change > 0"
+        src="assets/img/arrow-up.png"
+        alt="arrow-up"
+      />
+      <img
+        *ngIf="sentimentResult.change < 0"
+        src="assets/img/arrow-down.png"
+        alt="arrow-down"
+      />
+    </div>
+  </div>
+</div>

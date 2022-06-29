@@ -13,10 +13,10 @@
     </div>
     <div class="arrow-container">
       <img *ngIf="q.dp > 0" src="assets/img/arrow-up.png" alt="arrow-up" />
-      <img *ngIf="q.dp < 0" src="assets/img/arrow-down.png" alt="arrow-up" />
+      <img *ngIf="q.dp < 0" src="assets/img/arrow-down.png" alt="arrow-down" />
     </div>
   </div>
-  <button>Go to social sentiment details</button>
+  <button (click)="showSentimentsPage()">Go to social sentiment details</button>
   <div class="close-icon" (click)="removeStock()">
     <img src="assets/icons/close-fill.svg" alt="close-icon" />
   </div>

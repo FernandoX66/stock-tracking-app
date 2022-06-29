@@ -1,4 +1,5 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { Router } from '@angular/router';
 import { map, Observable, pluck } from 'rxjs';
 import { QuoteData } from 'src/app/interfaces/quote.interface';
 import { Company } from 'src/app/interfaces/symbol-lookup-response.interface';
@@ -13,22 +14,20 @@ export class StockComponent {
   @Input() set stock(symbol: string) {
     this.symbol = symbol;
     this.quote = this.stocksService.getQuote(symbol);
-    this.company = this.stocksService.searchSymbol(symbol).pipe(
-      pluck('result'),
-      map(
-        (companies) =>
-          companies.filter((company) => company.symbol === symbol)[0]
-      )
-    );
+    this.company = this.stocksService.getCompany(symbol);
   }
   @Output() deleteStock = new EventEmitter<string>();
   symbol: string;
   quote: Observable<QuoteData>;
   company: Observable<Company>;
 
-  constructor(private stocksService: StocksService) {}
+  constructor(private stocksService: StocksService, private router: Router) {}
 
   removeStock(): void {
     this.deleteStock.emit(this.symbol);
+  }
+
+  showSentimentsPage(): void {
+    this.router.navigate(['sentiment', this.symbol]);
   }
 }

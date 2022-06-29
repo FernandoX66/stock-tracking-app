@@ -1,0 +1,32 @@
+.month-data-container {
+  .month-details {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+
+    .month-information {
+      .negative-text {
+        color: red;
+      }
+
+      .positive-text {
+        color: green;
+      }
+
+      span {
+        font-weight: bold;
+      }
+    }
+
+    .arrow-container {
+      flex: 1;
+      display: flex;
+      text-align: center;
+      align-items: center;
+
+      img {
+        width: 64px;
+      }
+    }
+  }
+}

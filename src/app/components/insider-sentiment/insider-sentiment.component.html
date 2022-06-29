@@ -1,0 +1,17 @@
+<div class="insider-sentiment-container">
+  <div class="details-card">
+    <ng-container *ngIf="company$ | async as c">
+      <h2>{{ c.description + " (" + c.symbol + ")" }}</h2>
+    </ng-container>
+    <div
+      class="insider-sentiment-information"
+      *ngIf="sentimentResults | async as s"
+    >
+      <app-month-data
+        *ngFor="let result of s"
+        [sentimentResult]="result"
+      ></app-month-data>
+    </div>
+  </div>
+  <button [routerLink]="['']">Back to list of stocks</button>
+</div>
