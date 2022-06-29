@@ -14,13 +14,36 @@
     margin-bottom: 15px;
   }
 
-  .information-container {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    row-gap: 5px;
+  .quote-details {
+    display: flex;
 
-    span {
-      font-weight: 700;
+    .information-container {
+      flex: 5;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+
+      .negative-text {
+        color: red;
+      }
+
+      .positive-text {
+        color: green;
+      }
+
+      span {
+        font-weight: 700;
+      }
+    }
+
+    .arrow-container {
+      flex: 1;
+      display: flex;
+      text-align: center;
+      align-items: center;
+
+      img {
+        width: 64px;
+      }
     }
   }
 
