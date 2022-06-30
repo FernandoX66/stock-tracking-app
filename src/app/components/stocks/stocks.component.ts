@@ -8,7 +8,7 @@ import { LocalStorageService } from 'src/app/services/local-storage.service';
   styleUrls: ['./stocks.component.scss'],
 })
 export class StocksComponent implements OnInit {
-  stockInput = new FormControl('', [Validators.maxLength(5)]);
+  stockInput = new FormControl('', [Validators.pattern('^[A-Z]{1,5}$')]);
   stocks: string[] = [];
 
   constructor(private localStorageService: LocalStorageService) {}

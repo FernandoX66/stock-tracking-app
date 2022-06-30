@@ -16,25 +16,44 @@
       max-width: 400px;
       margin-top: 20px;
       display: flex;
+      align-items: flex-start;
       gap: 15px;
 
-      input {
-        font: {
-          family: inherit;
-          size: 14px;
+      .input-field {
+        input {
+          font: {
+            family: inherit;
+            size: 14px;
+          }
+          padding: 12px 25px;
+          border-radius: 10px;
+          border: 0;
+          box-shadow: 0px 0px 30px -4px rgb(0 0 0 / 10%);
+          outline: none;
+          width: 100%;
         }
-        padding: 12px 25px;
-        border-radius: 10px;
-        border: 0;
-        box-shadow: 0px 0px 30px -4px rgb(0 0 0 / 10%);
-        outline: none;
-        width: 100%;
+
+        .error-container {
+          p {
+            color: red;
+            font-size: 12px;
+            margin: 3px 0 0 5px;
+          }
+        }
       }
 
       button {
         @include m.button;
         width: 160px;
-        padding: 0 10px;
+        padding: 10px 10px;
+
+        &:disabled {
+          background-color: c.$blue-light;
+
+          &:hover {
+            cursor: default;
+          }
+        }
       }
     }
   }
