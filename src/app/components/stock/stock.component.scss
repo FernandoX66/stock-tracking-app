@@ -11,7 +11,7 @@
 
   h2 {
     font-size: 20px;
-    margin-bottom: 15px;
+    margin: 0 20px 15px 0;
   }
 
   .quote-details {
@@ -21,6 +21,7 @@
       flex: 5;
       display: grid;
       grid-template-columns: repeat(2, 1fr);
+      gap: 15px;
 
       .negative-text {
         color: red;

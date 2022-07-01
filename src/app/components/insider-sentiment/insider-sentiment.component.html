@@ -11,6 +11,10 @@
         *ngFor="let result of s"
         [sentimentResult]="result"
       ></app-month-data>
+      <app-no-results
+        message="There is no information to display for this stock."
+        *ngIf="s.length === 0"
+      ></app-no-results>
     </div>
   </div>
   <button [routerLink]="['']">Back to list of stocks</button>

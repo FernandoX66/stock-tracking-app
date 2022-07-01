@@ -1,5 +1,7 @@
 @use "colors" as c;
 
+$small-screen-width: 480px;
+
 @mixin button {
   border: none;
   font: {
@@ -13,5 +15,11 @@
 
   &:hover {
     cursor: pointer;
+  }
+}
+
+@mixin small-screen {
+  @media (max-width: $small-screen-width) {
+    @content;
   }
 }

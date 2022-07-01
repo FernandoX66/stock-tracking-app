@@ -1,0 +1,32 @@
+@use "colors" as c;
+@use "mixins" as m;
+
+.no-results {
+  width: 100%;
+  max-width: 230px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+
+  img {
+    width: 200px;
+
+    @include m.small-screen {
+      width: 130px;
+    }
+  }
+
+  p {
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+    color: c.$blue-dark;
+
+    @include m.small-screen {
+      font-size: 16px;
+    }
+  }
+}

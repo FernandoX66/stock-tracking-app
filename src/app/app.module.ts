@@ -9,9 +9,10 @@ import { StockComponent } from './components/stock/stock.component';
 import { HttpClientModule } from '@angular/common/http';
 import { InsiderSentimentComponent } from './components/insider-sentiment/insider-sentiment.component';
 import { MonthDataComponent } from './components/month-data/month-data.component';
+import { NoResultsComponent } from './components/no-results/no-results.component';
 
 @NgModule({
-  declarations: [AppComponent, StocksComponent, StockComponent, InsiderSentimentComponent, MonthDataComponent],
+  declarations: [AppComponent, StocksComponent, StockComponent, InsiderSentimentComponent, MonthDataComponent, NoResultsComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
