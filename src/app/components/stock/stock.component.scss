@@ -11,17 +11,18 @@
 
   h2 {
     font-size: 20px;
-    margin: 0 20px 15px 0;
+    margin: 0 20px 20px 0;
   }
 
   .quote-details {
     display: flex;
+    align-items: center;
 
     .information-container {
       flex: 5;
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      gap: 15px;
+      gap: 10px;
 
       .negative-text {
         color: red;
@@ -50,7 +51,8 @@
 
   button {
     @include m.button;
-    width: 230px;
+    width: 100%;
+    max-width: 230px;
     padding: 10px 10px;
     margin-top: 20px;
   }

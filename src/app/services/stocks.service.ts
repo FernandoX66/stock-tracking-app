@@ -29,7 +29,7 @@ export class StocksService {
     );
   }
 
-  getCompany(symbol: string): Observable<Company> {
+  getCompany(symbol: string): Observable<Company | undefined> {
     return this.http
       .get<SymbolLookupResponse>(
         `${this._url}/search?q=${symbol}&token=${this._token}`
@@ -40,9 +40,11 @@ export class StocksService {
           (companies) =>
             companies.filter((company) => company.symbol === symbol)[0]
         ),
-        tap((company) =>
-          this._companies.next([...this._companies.value, company])
-        )
+        tap((company) => {
+          if (company) {
+            this._companies.next([...this._companies.value, company]);
+          }
+        })
       );
   }
 

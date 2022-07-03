@@ -13,7 +13,7 @@ import { numberToMonth } from 'src/app/utils/number-to-month';
   styleUrls: ['./insider-sentiment.component.scss'],
 })
 export class InsiderSentimentComponent implements OnInit {
-  company$: Observable<Company>;
+  company$: Observable<Company | undefined>;
   symbol: string;
 
   constructor(

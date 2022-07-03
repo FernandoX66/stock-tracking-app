@@ -14,12 +14,18 @@ export class StockComponent {
   @Input() set stock(symbol: string) {
     this.symbol = symbol;
     this.quote = this.stocksService.getQuote(symbol);
-    this.company = this.stocksService.getCompany(symbol);
+    this.stocksService.getCompany(symbol).subscribe((company) => {
+      if (company) {
+        this.company = company;
+      } else {
+        this.deleteStock.emit(symbol);
+      }
+    });
   }
   @Output() deleteStock = new EventEmitter<string>();
   symbol: string;
   quote: Observable<QuoteData>;
-  company: Observable<Company>;
+  company: Company;
 
   constructor(private stocksService: StocksService, private router: Router) {}
 

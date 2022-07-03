@@ -1,6 +1,6 @@
 <div class="quote">
-  <ng-container *ngIf="company | async as c">
-    <h2>{{ c.description + " (" + c.symbol + ")" }}</h2>
+  <ng-container *ngIf="company">
+    <h2>{{ company.description + " (" + company.symbol + ")" }}</h2>
   </ng-container>
   <div class="quote-details" *ngIf="quote | async as q">
     <div class="information-container">
