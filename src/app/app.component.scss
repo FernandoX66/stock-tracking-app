@@ -1,6 +1,55 @@
+@use "colors" as c;
+@use "mixins" as m;
+
 .content {
   width: 95%;
   max-width: 1100px;
   margin: 0 auto;
   padding: 20px 0;
+
+  .notification {
+    position: fixed;
+    width: calc(100vw - 40px);
+    max-width: 300px;
+    z-index: 1;
+    bottom: 20px;
+    right: 20px;
+    padding: 10px;
+    background-color: c.$white;
+    border-radius: 4px;
+    box-shadow: 0px 0px 30px -4px rgb(0 0 0 / 10%);
+    border-left: 5px solid c.$red;
+    animation: enter 0.5s ease-in-out;
+    display: flex;
+    gap: 7px;
+
+    @include m.small-screen {
+      right: 10px;
+      width: calc(100vw - 20px);
+    }
+
+    p {
+      font-size: 16px;
+
+      &:first-child {
+        font-weight: bold;
+        font-size: 16px;
+        color: c.$red;
+        margin-bottom: 4px;
+      }
+    }
+
+    img {
+      width: 23px;
+    }
+  }
+
+  @keyframes enter {
+    0% {
+      transform: translateX(100%);
+    }
+    100% {
+      transform: translateX(0);
+    }
+  }
 }
