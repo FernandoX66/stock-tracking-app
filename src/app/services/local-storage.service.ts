@@ -8,11 +8,11 @@ export class LocalStorageService {
 
   constructor() {}
 
-  getItem(key: string): any {
-    return JSON.parse(this.localStorage.getItem(key)!);
+  getStocks(): string[] {
+    return JSON.parse(this.localStorage.getItem('stocks')!);
   }
 
-  setItem(key: string, body: any): void {
-    this.localStorage.setItem(key, JSON.stringify(body));
+  setStocks(body: string[]): void {
+    this.localStorage.setItem('stocks', JSON.stringify(body));
   }
 }

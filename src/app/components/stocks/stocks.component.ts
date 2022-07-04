@@ -14,20 +14,20 @@ export class StocksComponent implements OnInit {
   constructor(private localStorageService: LocalStorageService) {}
 
   ngOnInit(): void {
-    if (this.localStorageService.getItem('stocks')) {
-      this.stocks = this.localStorageService.getItem('stocks');
+    if (this.localStorageService.getStocks()) {
+      this.stocks = this.localStorageService.getStocks();
     }
   }
 
   trackStock(): void {
     this.stocks.push(this.stockInput.value);
-    this.localStorageService.setItem('stocks', this.stocks);
+    this.localStorageService.setStocks(this.stocks);
     this.stockInput.reset();
   }
 
   onDeleteStock(symbol: string): void {
     const index = this.stocks.indexOf(symbol);
     this.stocks.splice(index, 1);
-    this.localStorageService.setItem('stocks', this.stocks);
+    this.localStorageService.setStocks(this.stocks);
   }
 }
